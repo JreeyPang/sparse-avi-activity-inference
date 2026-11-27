@@ -1,0 +1,783 @@
+{
+  "n_chains_test": 100,
+  "val60_llm_gaps": 155,
+  "test100_llm_gaps": 384,
+  "llm_calibration": {
+    "tau_llm": 2.473025096108483,
+    "gamma_llm": {
+      "home": 0.14702467182345194,
+      "work": 0.156616504756871,
+      "school": 0.23268215035624173,
+      "shop": 0.07246338457508629,
+      "meal": -0.1296115449874002,
+      "social_recreational": -0.1975475657650253,
+      "escort": 0.051154920109388095,
+      "healthcare": -0.20450104395897062,
+      "errand_other": -0.12828147690964298
+    },
+    "selected_w_llm": 0.5,
+    "selected_w_zone": 1.5,
+    "theta_nollm": {
+      "detour_per_minute": 1.0,
+      "stop_log_odds": 6.659280851079197,
+      "log_poi_count": 0.24078453396537336,
+      "day_anchor": 0.8863283526379104,
+      "log_activity_potential": 0.148410524126569,
+      "activity_poi_match": 0.0,
+      "early_start_per_30min": 0.3473166526935826,
+      "late_start_per_30min": 0.02,
+      "short_dwell_per_30min": 2.702853439852403,
+      "long_dwell_per_30min": 1.4999999999999996
+    },
+    "theta_llm_calibrated": {
+      "detour_per_minute": 1.0,
+      "stop_log_odds": 5.8079166705893455,
+      "log_poi_count": 0.24412601651937257,
+      "day_anchor": 0.5917318718742609,
+      "log_activity_potential": 0.49590833462614176,
+      "activity_poi_match": 0.10777213820704395,
+      "early_start_per_30min": 0.12340407652899801,
+      "late_start_per_30min": 0.02,
+      "short_dwell_per_30min": 2.2524169579180375,
+      "long_dwell_per_30min": 1.5
+    }
+  },
+  "summary": {
+    "n_chains": 100,
+    "n_true_intermediate_stops": 302,
+    "models": {
+      "M1_Decoupled_Physical": {
+        "stop_detection": {
+          "tp": 228,
+          "predicted": 280,
+          "actual": 286,
+          "precision": 0.8142857142857143,
+          "recall": 0.7972027972027972,
+          "f1": 0.8056537102473498
+        },
+        "daily_stop_count_mae": 1.06,
+        "exact_interval_tract": {
+          "tp": 108,
+          "predicted": 280,
+          "actual": 302,
+          "precision": 0.38571428571428573,
+          "recall": 0.3576158940397351,
+          "f1": 0.3711340206185567
+        },
+        "chain_order_tract": {
+          "tp": 119,
+          "predicted": 280,
+          "actual": 302,
+          "precision": 0.425,
+          "recall": 0.39403973509933776,
+          "f1": 0.40893470790378006
+        },
+        "mean_tract_centroid_error_km": 1.1032434338884407,
+        "matched_arrival_mae_min": 16.676395152292823,
+        "matched_duration_mae_min": 25.120330528846665,
+        "triple_match": {
+          "tp": 54,
+          "predicted": 280,
+          "actual": 302,
+          "precision": 0.19285714285714287,
+          "recall": 0.17880794701986755,
+          "f1": 0.18556701030927836
+        },
+        "matched_stop_activity": {
+          "matched_count": 228,
+          "non_home_matched_count": 189,
+          "accuracy": 0.40350877192982454,
+          "non_home_accuracy": 0.31216931216931215,
+          "non_home_macro_f1": 0.20736966581470997,
+          "per_class": {
+            "home": {
+              "tp": 33,
+              "predicted": 75,
+              "actual": 39,
+              "precision": 0.44,
+              "recall": 0.8461538461538461,
+              "f1": 0.5789473684210527
+            },
+            "work": {
+              "tp": 29,
+              "predicted": 39,
+              "actual": 57,
+              "precision": 0.7435897435897436,
+              "recall": 0.5087719298245614,
+              "f1": 0.6041666666666666
+            },
+            "school": {
+              "tp": 0,
+              "predicted": 1,
+              "actual": 7,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "shop": {
+              "tp": 17,
+              "predicted": 53,
+              "actual": 35,
+              "precision": 0.32075471698113206,
+              "recall": 0.4857142857142857,
+              "f1": 0.38636363636363635
+            },
+            "meal": {
+              "tp": 1,
+              "predicted": 14,
+              "actual": 16,
+              "precision": 0.07142857142857142,
+              "recall": 0.0625,
+              "f1": 0.06666666666666667
+            },
+            "social_recreational": {
+              "tp": 8,
+              "predicted": 21,
+              "actual": 27,
+              "precision": 0.38095238095238093,
+              "recall": 0.2962962962962963,
+              "f1": 0.3333333333333333
+            },
+            "escort": {
+              "tp": 1,
+              "predicted": 3,
+              "actual": 21,
+              "precision": 0.3333333333333333,
+              "recall": 0.047619047619047616,
+              "f1": 0.08333333333333333
+            },
+            "healthcare": {
+              "tp": 0,
+              "predicted": 1,
+              "actual": 9,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "errand_other": {
+              "tp": 3,
+              "predicted": 21,
+              "actual": 17,
+              "precision": 0.14285714285714285,
+              "recall": 0.17647058823529413,
+              "f1": 0.15789473684210525
+            }
+          }
+        },
+        "daily_activity_sequence_similarity_valid": 0.5814499933056634,
+        "physical_edge_set": {
+          "tp": 15801,
+          "predicted": 22337,
+          "actual": 21904,
+          "precision": 0.7073913238125084,
+          "recall": 0.7213750913075238,
+          "f1": 0.714314775886621
+        },
+        "withheld_physical_edge_set": {
+          "tp": 12737,
+          "predicted": 19273,
+          "actual": 18840,
+          "precision": 0.6608727234991958,
+          "recall": 0.6760615711252654,
+          "f1": 0.6683808674205651
+        },
+        "milp_solve_ms": null
+      },
+      "M3_Joint_HAPP_NoLLM": {
+        "stop_detection": {
+          "tp": 234,
+          "predicted": 306,
+          "actual": 286,
+          "precision": 0.7647058823529411,
+          "recall": 0.8181818181818182,
+          "f1": 0.7905405405405406
+        },
+        "daily_stop_count_mae": 1.12,
+        "exact_interval_tract": {
+          "tp": 117,
+          "predicted": 306,
+          "actual": 302,
+          "precision": 0.38235294117647056,
+          "recall": 0.38741721854304634,
+          "f1": 0.3848684210526316
+        },
+        "chain_order_tract": {
+          "tp": 128,
+          "predicted": 306,
+          "actual": 302,
+          "precision": 0.41830065359477125,
+          "recall": 0.423841059602649,
+          "f1": 0.42105263157894735
+        },
+        "mean_tract_centroid_error_km": 0.9831196911859632,
+        "matched_arrival_mae_min": 20.226738056871078,
+        "matched_duration_mae_min": 30.445782948592228,
+        "triple_match": {
+          "tp": 55,
+          "predicted": 306,
+          "actual": 302,
+          "precision": 0.17973856209150327,
+          "recall": 0.18211920529801323,
+          "f1": 0.18092105263157895
+        },
+        "matched_stop_activity": {
+          "matched_count": 234,
+          "non_home_matched_count": 195,
+          "accuracy": 0.3888888888888889,
+          "non_home_accuracy": 0.29743589743589743,
+          "non_home_macro_f1": 0.2345505001053106,
+          "per_class": {
+            "home": {
+              "tp": 33,
+              "predicted": 59,
+              "actual": 39,
+              "precision": 0.559322033898305,
+              "recall": 0.8461538461538461,
+              "f1": 0.673469387755102
+            },
+            "work": {
+              "tp": 22,
+              "predicted": 28,
+              "actual": 56,
+              "precision": 0.7857142857142857,
+              "recall": 0.39285714285714285,
+              "f1": 0.5238095238095238
+            },
+            "school": {
+              "tp": 0,
+              "predicted": 5,
+              "actual": 7,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "shop": {
+              "tp": 16,
+              "predicted": 42,
+              "actual": 39,
+              "precision": 0.38095238095238093,
+              "recall": 0.41025641025641024,
+              "f1": 0.3950617283950617
+            },
+            "meal": {
+              "tp": 1,
+              "predicted": 15,
+              "actual": 17,
+              "precision": 0.06666666666666667,
+              "recall": 0.058823529411764705,
+              "f1": 0.0625
+            },
+            "social_recreational": {
+              "tp": 8,
+              "predicted": 26,
+              "actual": 27,
+              "precision": 0.3076923076923077,
+              "recall": 0.2962962962962963,
+              "f1": 0.3018867924528302
+            },
+            "escort": {
+              "tp": 6,
+              "predicted": 23,
+              "actual": 23,
+              "precision": 0.2608695652173913,
+              "recall": 0.2608695652173913,
+              "f1": 0.2608695652173913
+            },
+            "healthcare": {
+              "tp": 1,
+              "predicted": 7,
+              "actual": 9,
+              "precision": 0.14285714285714285,
+              "recall": 0.1111111111111111,
+              "f1": 0.125
+            },
+            "errand_other": {
+              "tp": 4,
+              "predicted": 29,
+              "actual": 17,
+              "precision": 0.13793103448275862,
+              "recall": 0.23529411764705882,
+              "f1": 0.17391304347826086
+            }
+          }
+        },
+        "daily_activity_sequence_similarity_valid": 0.5684410377709347,
+        "physical_edge_set": {
+          "tp": 15839,
+          "predicted": 22016,
+          "actual": 21904,
+          "precision": 0.7194313226744186,
+          "recall": 0.7231099342585829,
+          "f1": 0.7212659380692168
+        },
+        "withheld_physical_edge_set": {
+          "tp": 12775,
+          "predicted": 18952,
+          "actual": 18840,
+          "precision": 0.6740713381173491,
+          "recall": 0.6780785562632696,
+          "f1": 0.6760690093141406
+        },
+        "milp_solve_ms": {
+          "median": 4.5168750220909715,
+          "p90": 5.773758189752698,
+          "max": 23.05766590870917
+        }
+      },
+      "M3_LLM_Raw": {
+        "stop_detection": {
+          "tp": 238,
+          "predicted": 333,
+          "actual": 286,
+          "precision": 0.7147147147147147,
+          "recall": 0.8321678321678322,
+          "f1": 0.7689822294022617
+        },
+        "daily_stop_count_mae": 1.27,
+        "exact_interval_tract": {
+          "tp": 116,
+          "predicted": 333,
+          "actual": 302,
+          "precision": 0.3483483483483483,
+          "recall": 0.3841059602649007,
+          "f1": 0.3653543307086614
+        },
+        "chain_order_tract": {
+          "tp": 129,
+          "predicted": 333,
+          "actual": 302,
+          "precision": 0.38738738738738737,
+          "recall": 0.4271523178807947,
+          "f1": 0.4062992125984252
+        },
+        "mean_tract_centroid_error_km": 1.0891818746527202,
+        "matched_arrival_mae_min": 18.20465484183792,
+        "matched_duration_mae_min": 29.91954675895907,
+        "triple_match": {
+          "tp": 57,
+          "predicted": 333,
+          "actual": 302,
+          "precision": 0.17117117117117117,
+          "recall": 0.18874172185430463,
+          "f1": 0.1795275590551181
+        },
+        "matched_stop_activity": {
+          "matched_count": 238,
+          "non_home_matched_count": 199,
+          "accuracy": 0.3949579831932773,
+          "non_home_accuracy": 0.32160804020100503,
+          "non_home_macro_f1": 0.29252282388499296,
+          "per_class": {
+            "home": {
+              "tp": 30,
+              "predicted": 62,
+              "actual": 39,
+              "precision": 0.4838709677419355,
+              "recall": 0.7692307692307693,
+              "f1": 0.594059405940594
+            },
+            "work": {
+              "tp": 29,
+              "predicted": 38,
+              "actual": 56,
+              "precision": 0.7631578947368421,
+              "recall": 0.5178571428571429,
+              "f1": 0.6170212765957447
+            },
+            "school": {
+              "tp": 1,
+              "predicted": 1,
+              "actual": 7,
+              "precision": 1.0,
+              "recall": 0.14285714285714285,
+              "f1": 0.25
+            },
+            "shop": {
+              "tp": 13,
+              "predicted": 36,
+              "actual": 43,
+              "precision": 0.3611111111111111,
+              "recall": 0.3023255813953488,
+              "f1": 0.3291139240506329
+            },
+            "meal": {
+              "tp": 6,
+              "predicted": 43,
+              "actual": 17,
+              "precision": 0.13953488372093023,
+              "recall": 0.35294117647058826,
+              "f1": 0.2
+            },
+            "social_recreational": {
+              "tp": 9,
+              "predicted": 36,
+              "actual": 27,
+              "precision": 0.25,
+              "recall": 0.3333333333333333,
+              "f1": 0.2857142857142857
+            },
+            "escort": {
+              "tp": 3,
+              "predicted": 12,
+              "actual": 23,
+              "precision": 0.25,
+              "recall": 0.13043478260869565,
+              "f1": 0.17142857142857143
+            },
+            "healthcare": {
+              "tp": 2,
+              "predicted": 2,
+              "actual": 9,
+              "precision": 1.0,
+              "recall": 0.2222222222222222,
+              "f1": 0.36363636363636365
+            },
+            "errand_other": {
+              "tp": 1,
+              "predicted": 8,
+              "actual": 17,
+              "precision": 0.125,
+              "recall": 0.058823529411764705,
+              "f1": 0.08
+            }
+          }
+        },
+        "daily_activity_sequence_similarity_valid": 0.5636813644545603,
+        "physical_edge_set": {
+          "tp": 15831,
+          "predicted": 22389,
+          "actual": 21904,
+          "precision": 0.7070883022913038,
+          "recall": 0.7227447041636231,
+          "f1": 0.7148307859029643
+        },
+        "withheld_physical_edge_set": {
+          "tp": 12767,
+          "predicted": 19325,
+          "actual": 18840,
+          "precision": 0.6606468305304011,
+          "recall": 0.6776539278131635,
+          "f1": 0.6690423162583519
+        },
+        "milp_solve_ms": {
+          "median": 4.338375059887767,
+          "p90": 5.60672520659864,
+          "max": 26.898958021774888
+        }
+      },
+      "M3_LLM_ActOnly": {
+        "stop_detection": {
+          "tp": 235,
+          "predicted": 311,
+          "actual": 286,
+          "precision": 0.7556270096463023,
+          "recall": 0.8216783216783217,
+          "f1": 0.7872696817420436
+        },
+        "daily_stop_count_mae": 1.15,
+        "exact_interval_tract": {
+          "tp": 112,
+          "predicted": 311,
+          "actual": 302,
+          "precision": 0.36012861736334406,
+          "recall": 0.3708609271523179,
+          "f1": 0.36541598694942906
+        },
+        "chain_order_tract": {
+          "tp": 124,
+          "predicted": 311,
+          "actual": 302,
+          "precision": 0.3987138263665595,
+          "recall": 0.4105960264900662,
+          "f1": 0.40456769983686786
+        },
+        "mean_tract_centroid_error_km": 1.013302923620538,
+        "matched_arrival_mae_min": 16.342529414000452,
+        "matched_duration_mae_min": 25.65376304306222,
+        "triple_match": {
+          "tp": 52,
+          "predicted": 311,
+          "actual": 302,
+          "precision": 0.16720257234726688,
+          "recall": 0.17218543046357615,
+          "f1": 0.16965742251223492
+        },
+        "matched_stop_activity": {
+          "matched_count": 235,
+          "non_home_matched_count": 196,
+          "accuracy": 0.4297872340425532,
+          "non_home_accuracy": 0.3469387755102041,
+          "non_home_macro_f1": 0.27120510286666955,
+          "per_class": {
+            "home": {
+              "tp": 33,
+              "predicted": 60,
+              "actual": 39,
+              "precision": 0.55,
+              "recall": 0.8461538461538461,
+              "f1": 0.6666666666666666
+            },
+            "work": {
+              "tp": 31,
+              "predicted": 41,
+              "actual": 56,
+              "precision": 0.7560975609756098,
+              "recall": 0.5535714285714286,
+              "f1": 0.6391752577319587
+            },
+            "school": {
+              "tp": 1,
+              "predicted": 2,
+              "actual": 7,
+              "precision": 0.5,
+              "recall": 0.14285714285714285,
+              "f1": 0.2222222222222222
+            },
+            "shop": {
+              "tp": 19,
+              "predicted": 51,
+              "actual": 40,
+              "precision": 0.37254901960784315,
+              "recall": 0.475,
+              "f1": 0.4175824175824176
+            },
+            "meal": {
+              "tp": 1,
+              "predicted": 21,
+              "actual": 17,
+              "precision": 0.047619047619047616,
+              "recall": 0.058823529411764705,
+              "f1": 0.05263157894736842
+            },
+            "social_recreational": {
+              "tp": 9,
+              "predicted": 28,
+              "actual": 27,
+              "precision": 0.32142857142857145,
+              "recall": 0.3333333333333333,
+              "f1": 0.32727272727272727
+            },
+            "escort": {
+              "tp": 5,
+              "predicted": 22,
+              "actual": 23,
+              "precision": 0.22727272727272727,
+              "recall": 0.21739130434782608,
+              "f1": 0.2222222222222222
+            },
+            "healthcare": {
+              "tp": 1,
+              "predicted": 2,
+              "actual": 9,
+              "precision": 0.5,
+              "recall": 0.1111111111111111,
+              "f1": 0.18181818181818182
+            },
+            "errand_other": {
+              "tp": 1,
+              "predicted": 8,
+              "actual": 17,
+              "precision": 0.125,
+              "recall": 0.058823529411764705,
+              "f1": 0.08
+            }
+          }
+        },
+        "daily_activity_sequence_similarity_valid": 0.5793981791404472,
+        "physical_edge_set": {
+          "tp": 15831,
+          "predicted": 22068,
+          "actual": 21904,
+          "precision": 0.717373572593801,
+          "recall": 0.7227447041636231,
+          "f1": 0.7200491221686528
+        },
+        "withheld_physical_edge_set": {
+          "tp": 12767,
+          "predicted": 19004,
+          "actual": 18840,
+          "precision": 0.6718059355925068,
+          "recall": 0.6776539278131635,
+          "f1": 0.6747172603318888
+        },
+        "milp_solve_ms": {
+          "median": 4.152500070631504,
+          "p90": 5.5028163362294436,
+          "max": 7.472958182916045
+        }
+      },
+      "M3_LLM_Calibrated": {
+        "stop_detection": {
+          "tp": 237,
+          "predicted": 324,
+          "actual": 286,
+          "precision": 0.7314814814814815,
+          "recall": 0.8286713286713286,
+          "f1": 0.7770491803278688
+        },
+        "daily_stop_count_mae": 1.24,
+        "exact_interval_tract": {
+          "tp": 123,
+          "predicted": 324,
+          "actual": 302,
+          "precision": 0.37962962962962965,
+          "recall": 0.40728476821192056,
+          "f1": 0.3929712460063898
+        },
+        "chain_order_tract": {
+          "tp": 133,
+          "predicted": 324,
+          "actual": 302,
+          "precision": 0.4104938271604938,
+          "recall": 0.44039735099337746,
+          "f1": 0.4249201277955272
+        },
+        "mean_tract_centroid_error_km": 0.9563494205849653,
+        "matched_arrival_mae_min": 18.179957277344272,
+        "matched_duration_mae_min": 27.99268301824121,
+        "triple_match": {
+          "tp": 58,
+          "predicted": 324,
+          "actual": 302,
+          "precision": 0.17901234567901234,
+          "recall": 0.19205298013245034,
+          "f1": 0.1853035143769968
+        },
+        "matched_stop_activity": {
+          "matched_count": 237,
+          "non_home_matched_count": 198,
+          "accuracy": 0.41350210970464135,
+          "non_home_accuracy": 0.3333333333333333,
+          "non_home_macro_f1": 0.27596933930689754,
+          "per_class": {
+            "home": {
+              "tp": 32,
+              "predicted": 59,
+              "actual": 39,
+              "precision": 0.5423728813559322,
+              "recall": 0.8205128205128205,
+              "f1": 0.6530612244897959
+            },
+            "work": {
+              "tp": 26,
+              "predicted": 35,
+              "actual": 56,
+              "precision": 0.7428571428571429,
+              "recall": 0.4642857142857143,
+              "f1": 0.5714285714285714
+            },
+            "school": {
+              "tp": 1,
+              "predicted": 3,
+              "actual": 7,
+              "precision": 0.3333333333333333,
+              "recall": 0.14285714285714285,
+              "f1": 0.2
+            },
+            "shop": {
+              "tp": 20,
+              "predicted": 50,
+              "actual": 42,
+              "precision": 0.4,
+              "recall": 0.47619047619047616,
+              "f1": 0.43478260869565216
+            },
+            "meal": {
+              "tp": 2,
+              "predicted": 26,
+              "actual": 17,
+              "precision": 0.07692307692307693,
+              "recall": 0.11764705882352941,
+              "f1": 0.09302325581395349
+            },
+            "social_recreational": {
+              "tp": 9,
+              "predicted": 27,
+              "actual": 27,
+              "precision": 0.3333333333333333,
+              "recall": 0.3333333333333333,
+              "f1": 0.3333333333333333
+            },
+            "escort": {
+              "tp": 5,
+              "predicted": 19,
+              "actual": 23,
+              "precision": 0.2631578947368421,
+              "recall": 0.21739130434782608,
+              "f1": 0.23809523809523808
+            },
+            "healthcare": {
+              "tp": 1,
+              "predicted": 2,
+              "actual": 9,
+              "precision": 0.5,
+              "recall": 0.1111111111111111,
+              "f1": 0.18181818181818182
+            },
+            "errand_other": {
+              "tp": 2,
+              "predicted": 16,
+              "actual": 17,
+              "precision": 0.125,
+              "recall": 0.11764705882352941,
+              "f1": 0.12121212121212122
+            }
+          }
+        },
+        "daily_activity_sequence_similarity_valid": 0.5766842207048393,
+        "physical_edge_set": {
+          "tp": 15827,
+          "predicted": 22114,
+          "actual": 21904,
+          "precision": 0.7157004612462693,
+          "recall": 0.7225620891161432,
+          "f1": 0.7191149075378255
+        },
+        "withheld_physical_edge_set": {
+          "tp": 12763,
+          "predicted": 19050,
+          "actual": 18840,
+          "precision": 0.6699737532808399,
+          "recall": 0.6774416135881104,
+          "f1": 0.6736869886513592
+        },
+        "milp_solve_ms": {
+          "median": 4.2435829527676105,
+          "p90": 5.650707753375173,
+          "max": 6.822959054261446
+        }
+      }
+    }
+  },
+  "llm_delta_vs_m3_nollm": {
+    "tract_changed_when_both_stop": 63,
+    "tract_corrected": 17,
+    "tract_harmed": 13,
+    "tract_net": 4,
+    "changed_tract_withheld_path_f1_base": 0.3131079203334877,
+    "changed_tract_withheld_path_f1_llm": 0.31545454545454543,
+    "act_changed_when_both_stop": 79,
+    "act_corrected": 15,
+    "act_harmed": 9,
+    "act_net": 6,
+    "triple_gained_shared_gaps": 9,
+    "triple_lost_shared_gaps": 7,
+    "triple_net_shared_gaps": 2
+  },
+  "llm_delta_vs_m1_physical": {
+    "tract_changed_when_both_stop": 73,
+    "tract_corrected": 23,
+    "tract_harmed": 12,
+    "tract_net": 11,
+    "changed_tract_withheld_path_f1_base": 0.21278167713335797,
+    "changed_tract_withheld_path_f1_llm": 0.31665941713788603,
+    "act_changed_when_both_stop": 106,
+    "act_corrected": 21,
+    "act_harmed": 16,
+    "act_net": 5,
+    "triple_gained_shared_gaps": 12,
+    "triple_lost_shared_gaps": 9,
+    "triple_net_shared_gaps": 3
+  },
+  "runtime_seconds": 121.11707429192029
+}

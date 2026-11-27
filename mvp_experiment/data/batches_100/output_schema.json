@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "predictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sample_key": { "type": "string" },
+          "predicted_label": {
+            "type": "string",
+            "enum": [
+              "home",
+              "work",
+              "school",
+              "shop",
+              "meal",
+              "social_recreational",
+              "escort",
+              "healthcare",
+              "errand_other"
+            ]
+          },
+          "probs": {
+            "type": "object",
+            "properties": {
+              "home": { "type": "number" },
+              "work": { "type": "number" },
+              "school": { "type": "number" },
+              "shop": { "type": "number" },
+              "meal": { "type": "number" },
+              "social_recreational": { "type": "number" },
+              "escort": { "type": "number" },
+              "healthcare": { "type": "number" },
+              "errand_other": { "type": "number" }
+            },
+            "required": [
+              "home",
+              "work",
+              "school",
+              "shop",
+              "meal",
+              "social_recreational",
+              "escort",
+              "healthcare",
+              "errand_other"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": ["sample_key", "predicted_label", "probs"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["predictions"],
+  "additionalProperties": false
+}
